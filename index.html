@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>curves</title>
+</head>
+<body>
+
+  <div id="parent">
+  <div id="controls">
+    <h4>A</h4>
+    <input type="range" id="a" name="a" min="0" max="25" value="12.25" step="0.05" onchange="reset()">
+    <h4>B</h4>
+    <input type="range" id="b" name="b" min="0" max="25" value="11.25" step="0.05" onchange="reset()">
+    <h4>Speed</h4>
+    <input type="range" id="speed" name="speed" min="0" max="1" value=".5" step="0.05">
+    
+
+    <button onclick="reset()">Clear</button>
+
+
+  </div>
+  <canvas id="myCanvas"></canvas>
+  </div>
+  
+  <script src='js/script.js'></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</body>
+</html>

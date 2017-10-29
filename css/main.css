@@ -1,0 +1,30 @@
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+
+#parent {
+  float: left;
+}
+
+
+#controls {
+  float: left;
+  width: 100px;
+  height: 100vh;
+  background-color: lightblue;
+}
+
+#canvas {
+  background-color: lightgrey;
+}
+
+#a, #b, #c, #d, #speed {
+    width:80px;
+}
