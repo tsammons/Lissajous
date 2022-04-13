@@ -22,9 +22,14 @@ function setupCanvas() {
     ctx = myCanvas.getContext('2d');
     canvas.width = window.innerWidth - 125;
     canvas.height = window.innerHeight;
-    ctx.lineWidth=10;
-    ctx.strokeStyle="#FF0000";
-    ctx.fillStyle="#00FF00";
+    if (screen.width >= 375 && screen.width <= 667) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - 400;
+    }
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "#FF0000";
+    ctx.fillStyle = "#00FF00";
 }
 
 function beginCurve() {

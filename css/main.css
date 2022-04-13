@@ -4,6 +4,8 @@
 }
 
 #root {
+  display: flex;
+  flex-direction: row;
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -11,6 +13,8 @@
 }
 
 .controlsContainer {
+  display: flex;
+  flex-direction: column;
   float: left;
   width: 125px;
   height: 100%;
@@ -25,6 +29,7 @@
   font-size: 20px;
   font-weight: normal;
   letter-spacing: 2px;
+  padding-top: 5px;
   padding-bottom: 20px;
   padding-left: 8px;
 }
@@ -33,6 +38,11 @@
   display: flex;
   flex-direction: column;
   padding-left: 8px;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
 }
 
 .control {
@@ -99,4 +109,70 @@
   border-radius: 50%;
   background: #04AA6D;
   cursor: pointer;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  #root {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+  }
+
+  .controlsContainer {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 2px solid black;
+    border-right: none;
+  }
+
+  .title {
+    font-size: 50px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .controlPanel {
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-top: 20px;
+  }
+
+  .control.reset {
+    padding-left: 75px;
+  }
+
+  .control.reset button {
+    background-color: #d3d3d3;
+    border: none;
+    color: black;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .control {
+    padding-bottom: 40px;
+  }
+
+  #a, #b, #c, #d, #speed {
+    width: 200px;
+  }
+
+  .label {
+    font-size: 30px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+  }
 }
