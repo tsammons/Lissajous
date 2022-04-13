@@ -1,5 +1,4 @@
 "use strict";
-
 var ctx, canvas;
 var PARAM_C = 1, 
     PARAM_D = 1, 
@@ -29,11 +28,11 @@ function setupCanvas() {
 
     ctx.lineWidth = 10;
     ctx.strokeStyle = "#FF0000";
-    ctx.fillStyle = "#00FF00";
+    ctx.fillStyle = "#00FF7F";
 }
 
 function beginCurve() {
-    var t = Math.PI * 0;
+    var t = Math.PI * 12.5;
 
     setInterval(() => {
         t = plotLissajous(t);
