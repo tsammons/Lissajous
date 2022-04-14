@@ -5,13 +5,12 @@ var PARAM_C = 1,
     SIZE = 2, 
     T_INTERVAL = .0001;
 
-var mobileScreen = false;
+var mobileScreen = false, colorize = false;
 
 function init() {
     if (screen.width >= 375 && screen.width <= 667) {
         mobileScreen = true;
     }
-
     if (!mobileScreen) {
         window.addEventListener('resize', onWindowResize);
     }
@@ -42,9 +41,21 @@ function setupCanvas() {
 }
 
 function beginCurve() {
-    var t = Math.PI * 13.334; //16.334;
+    var t = Math.PI * 13.334;
+
+    var r = Math.floor(Math.random()*155),
+        g = Math.floor(Math.random()*155),
+        b = Math.floor(Math.random()*155);
 
     setInterval(() => {
+        if (colorize) {
+            r += Math.random() > 0.5 ? 1 : -1;
+            g += Math.random() > 0.5 ? 1 : -1;
+            b += Math.random() > 0.5 ? 1 : -1;
+            var newColor = `rgba(${100 + r % 155},${100 + g % 155},${100 + b % 155},1)`;
+            ctx.fillStyle = newColor;
+        }
+
         t = plotLissajous(t);
     }, 2);
 }
@@ -83,6 +94,21 @@ function reset() {
     console.log(document.getElementById("a").value);
     console.log(document.getElementById("b").value);
     console.log("~~~");
+}
+
+function toggleColorize() {
+    colorize = !colorize;
+    var colorButton = document.getElementById('colorizeButton');
+
+    if (!colorize) {
+        colorButton.style.backgroundColor = "#d3d3d3";
+        colorButton.style.border = "none";
+        ctx.strokeStyle = "#00FF7F";
+        ctx.fillStyle = "#00FF7F";
+    } else {
+        colorButton.style.backgroundColor = "white";
+        colorButton.style.border = "1px solid #d3d3d3";
+    }
 }
 
 init();

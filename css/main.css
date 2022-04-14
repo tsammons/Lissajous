@@ -64,6 +64,16 @@
   display: inline-block;
 }
 
+.control.colorize button {
+  background-color: #d3d3d3;
+  border: none;
+  color: black;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .label {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -149,11 +159,21 @@
     padding-top: 20px;
   }
 
-  .control.reset {
+  .control.reset, .control.colorize {
     padding-left: 75px;
   }
 
   .control.reset button {
+    background-color: #d3d3d3;
+    border: none;
+    color: black;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .control.colorize button {
     background-color: #d3d3d3;
     border: none;
     color: black;
