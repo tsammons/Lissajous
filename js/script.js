@@ -51,7 +51,7 @@ function beginCurve() {
         if (colorize) {
             r += Math.random() > 0.5 ? 1 : -1;
             g += Math.random() > 0.5 ? 1 : -1;
-            b += Math.random() > 0.5 ? 1 : -1;
+            //b += Math.random() > 0.5 ? 1 : -1;
             var newColor = `rgba(${100 + r % 155},${100 + g % 155},${100 + b % 155},1)`;
             ctx.fillStyle = newColor;
         }
