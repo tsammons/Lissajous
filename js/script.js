@@ -5,8 +5,17 @@ var PARAM_C = 1,
     SIZE = 2, 
     T_INTERVAL = .0001;
 
+var mobileScreen = false;
+
 function init() {
-    window.addEventListener('resize', onWindowResize);
+    if (screen.width >= 375 && screen.width <= 667) {
+        mobileScreen = true;
+    }
+
+    if (!mobileScreen) {
+        window.addEventListener('resize', onWindowResize);
+    }
+    
     setupCanvas();
     beginCurve();
 }
@@ -21,7 +30,8 @@ function setupCanvas() {
     ctx = myCanvas.getContext('2d');
     canvas.width = window.innerWidth - 125;
     canvas.height = window.innerHeight;
-    if (screen.width >= 375 && screen.width <= 667) {
+    
+    if (mobileScreen) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight - 400;
     }
