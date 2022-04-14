@@ -56,13 +56,13 @@ function plotLissajous(t) {
 
     var xAmplitude = canvas.width * 0.465;
     var yAmplitude = canvas.height * 0.45;
-    var allPoints = Math.floor(speed * 200)
+    var allPoints = !mobileScreen ? Math.floor(speed * 200) : Math.floor(speed * 100);
 
     for (var n = 0; n < allPoints; n++) {
         var x = xAmplitude * Math.sin(t*a + PARAM_C);
         var y = yAmplitude * Math.sin(t*b + PARAM_D);
         drawPoint(x, y);
-        t += T_INTERVAL;
+        t += !mobileScreen ? T_INTERVAL : T_INTERVAL * 2;
     }
 
     return t;
