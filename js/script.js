@@ -3,7 +3,7 @@ var ctx, canvas;
 var PARAM_C = 1, 
     PARAM_D = 1, 
     SIZE = 2, 
-    T_INTERVAL = .0002;
+    T_INTERVAL = .0001;
 
 function init() {
     window.addEventListener('resize', onWindowResize);
@@ -26,13 +26,13 @@ function setupCanvas() {
         canvas.height = window.innerHeight - 400;
     }
 
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = "#FF0000";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#00FF7F";
     ctx.fillStyle = "#00FF7F";
 }
 
 function beginCurve() {
-    var t = Math.PI * 12.5;
+    var t = Math.PI * 13.334; //16.334;
 
     setInterval(() => {
         t = plotLissajous(t);
@@ -46,8 +46,9 @@ function plotLissajous(t) {
 
     var xAmplitude = canvas.width * 0.465;
     var yAmplitude = canvas.height * 0.45;
+    var allPoints = Math.floor(speed * 200)
 
-    for (var n = 0; n < speed*100; n++) {
+    for (var n = 0; n < allPoints; n++) {
         var x = xAmplitude * Math.sin(t*a + PARAM_C);
         var y = yAmplitude * Math.sin(t*b + PARAM_D);
         drawPoint(x, y);
@@ -60,7 +61,11 @@ function plotLissajous(t) {
 function drawPoint(x, y) {
     var xCenter = canvas.width * 0.5;
     var yCenter = canvas.height * 0.5;
-    ctx.fillRect(xCenter + x, yCenter + y, SIZE, SIZE)
+
+    ctx.beginPath();
+    ctx.arc(xCenter + x, yCenter + y, SIZE/2, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
 }
 
 function reset() {
