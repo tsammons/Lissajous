@@ -177,4 +177,9 @@
     letter-spacing: 1px;
     padding-bottom: 5px;
   }
+
+  .slider::-webkit-slider-thumb {
+    width: 35px;
+    height: 35px;
+  }
 }
